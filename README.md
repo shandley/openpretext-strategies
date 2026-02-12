@@ -19,10 +19,10 @@ Each strategy is a single JSON file with the following fields:
 |---|---|---|---|
 | `id` | string | yes | Unique identifier (lowercase, hyphenated) |
 | `name` | string | yes | Display name shown in the strategy dropdown |
-| `description` | string | yes | Short description of what this strategy does |
-| `category` | string | yes | One of: `general`, `pattern`, `workflow`, `organism` |
+| `description` | string | recommended | Short description of what this strategy does (defaults to `""`) |
+| `category` | string | recommended | One of: `general`, `pattern`, `workflow`, `organism` (defaults to `"general"`) |
 | `supplement` | string | yes | Additional prompt text (can be empty string) |
-| `examples` | array | yes | Array of example objects (can be empty array) |
+| `examples` | array | recommended | Array of example objects (defaults to `[]`) |
 
 Each example object has:
 
@@ -59,7 +59,10 @@ Each example object has:
 
 ## Built-in Strategies
 
-This repository is seeded with the 5 built-in strategies that ship with OpenPretext:
+This repository is seeded with the 5 built-in strategies that ship with OpenPretext.
+These are provided as reference templates. Since they are already built into
+the app, importing them will create a copy with an `imported-` ID prefix
+(e.g., `imported-general`) rather than overwriting the original.
 
 | Strategy | Category | Description |
 |---|---|---|
