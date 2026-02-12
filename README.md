@@ -76,9 +76,31 @@ the app, importing them will create a copy with an `imported-` ID prefix
 
 1. Fork this repository
 2. Create your strategy JSON file in the `strategies/` directory
-3. Validate that your JSON matches the format above
+3. Run the validation script to check your file (see below)
 4. Test it by importing into OpenPretext (click **Import** in the AI panel)
 5. Submit a pull request with a brief description of what your strategy targets
+
+### Validation
+
+A validation script checks all strategy files against the format specification.
+CI runs this automatically on every pull request. You can also run it locally
+before submitting:
+
+```bash
+node scripts/validate.mjs
+```
+
+Requires Node.js 22 or later. No dependencies to install.
+
+The validator checks:
+- Valid JSON with correct structure (non-null object)
+- Required fields: `id` (non-empty string), `name` (non-empty string), `supplement` (string)
+- Optional field types: `description` (string), `category` (valid value), `examples` (array of objects with string `scenario` and `commands`)
+- Filename convention: lowercase, hyphenated, `.json` extension
+- No duplicate `id` values across files
+
+Errors cause the CI check to fail. Warnings (missing optional fields, id/filename
+mismatch) are informational and do not block merging.
 
 ### Naming Conventions
 
