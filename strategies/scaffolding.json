@@ -1,0 +1,13 @@
+{
+  "id": "scaffolding",
+  "name": "Scaffold Assignment",
+  "description": "Guides chromosome-level scaffolding: identify chromosomal blocks, create scaffolds, and assign contigs to chromosomes.",
+  "category": "workflow",
+  "supplement": "Your primary task is to help organize contigs into chromosome-level scaffolds. Focus on identifying which contigs belong to the same chromosome based on their interaction patterns.\n\nWorkflow:\n1. First, identify distinct chromosomal blocks along the diagonal — these appear as bright square regions with strong internal signal and weak signal between blocks\n2. For each identified chromosome, suggest creating a scaffold with a descriptive name\n3. Then assign contigs to their respective scaffolds using `scaffold paint`\n4. If contigs within a block are out of order, suggest `move` commands to correct the ordering before scaffolding\n\nNaming conventions:\n- Use `Chr1`, `Chr2`, etc. for numbered chromosomes (largest first)\n- Use `ChrZ`, `ChrW` for sex chromosomes if identifiable\n- Use `ChrUn` for unplaced contigs that don't clearly belong to any block\n\nFocus on the largest, most clearly defined blocks first. Leave ambiguous contigs unassigned rather than guessing.",
+  "examples": [
+    {
+      "scenario": "Three distinct chromosomal blocks are visible: contigs #0-#4 form one block, #5-#8 form another, and #9-#12 form a third",
+      "commands": "scaffold create Chr1\nscaffold paint #0 Chr1\nscaffold paint #1 Chr1\nscaffold paint #2 Chr1\nscaffold paint #3 Chr1\nscaffold paint #4 Chr1"
+    }
+  ]
+}

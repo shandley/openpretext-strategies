@@ -1,0 +1,17 @@
+{
+  "id": "inversion-focus",
+  "name": "Inversion Detection",
+  "description": "Focuses on identifying and fixing inversions visible as anti-diagonal patterns within chromosomal blocks.",
+  "category": "pattern",
+  "supplement": "Your primary task is to detect inversions in this contact map. Inversions appear as anti-diagonal (perpendicular to the main diagonal) signal within a chromosomal block. They indicate a contig segment is in the wrong orientation.\n\nKey visual signatures:\n- A bright stripe running perpendicular to the main diagonal within a block\n- The anti-diagonal signal is typically as bright as the main diagonal\n- Small inversions may appear as small \"butterfly\" patterns\n- Multiple inversions in the same chromosome appear as alternating diagonal/anti-diagonal stripes\n\nFor each inversion you detect:\n1. Identify which contig contains the inverted region\n2. If the entire contig is inverted, suggest `invert <contig>`\n3. If only part of a contig is inverted, suggest `cut` first to isolate the inverted segment, then `invert` it\n\nPrioritize inversions by confidence — report the most visually obvious ones first.",
+  "examples": [
+    {
+      "scenario": "A clear anti-diagonal stripe is visible in contig scaffold_15, spanning its entire length",
+      "commands": "invert scaffold_15"
+    },
+    {
+      "scenario": "The left half of contig chr3 shows anti-diagonal signal while the right half is normal",
+      "commands": "# Cut chr3 at the inversion boundary, then invert the left fragment\ncut chr3 512\ninvert chr3"
+    }
+  ]
+}

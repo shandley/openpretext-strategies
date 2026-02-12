@@ -1,0 +1,17 @@
+{
+  "id": "fragmented-assembly",
+  "name": "Fragmented Assembly",
+  "description": "For assemblies with many small contigs. Emphasizes automated operations (autosort, autocut) and batch processing.",
+  "category": "workflow",
+  "supplement": "This assembly has many contigs, suggesting it is fragmented or in an early stage of curation. For fragmented assemblies:\n\n1. Start with automated operations to establish a baseline ordering:\n   - Suggest `autosort` to reorder contigs by Hi-C linkage signal\n   - Suggest `autocut` if you see obvious misjoins (diagonal gaps)\n2. After automated operations, focus on the largest contigs where manual corrections will have the most impact\n3. Small contigs with weak signal may be debris or unplaced fragments — these are lower priority\n4. Look for groups of small contigs that share strong off-diagonal signal with larger contigs — these likely belong to the same chromosome and should be moved adjacent\n\nFor very fragmented assemblies, don't try to fix everything. Focus on:\n- The 5-10 most impactful reordering moves\n- Clear inversions in the largest contigs\n- Obvious misjoins where the diagonal signal drops to zero\n\nSuggest operations in batches of 3-5 commands maximum.",
+  "examples": [
+    {
+      "scenario": "A fragmented assembly with 200+ contigs in seemingly random order",
+      "commands": "# Start with automated sorting to establish baseline ordering\nautosort"
+    },
+    {
+      "scenario": "After autosort, several small contigs (#45, #46, #47) show strong off-diagonal signal with the block at #10-#15",
+      "commands": "move #45 after #15\nmove #46 after #15\nmove #47 after #15"
+    }
+  ]
+}

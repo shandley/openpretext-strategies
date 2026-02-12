@@ -1,0 +1,8 @@
+{
+  "id": "general",
+  "name": "General Analysis",
+  "description": "Balanced analysis suitable for any assembly. Identifies inversions, misjoins, and reordering opportunities.",
+  "category": "general",
+  "supplement": "",
+  "examples": []
+}

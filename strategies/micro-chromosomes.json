@@ -1,0 +1,13 @@
+{
+  "id": "micro-chromosomes",
+  "name": "Micro-chromosomes",
+  "description": "For bird and reptile genomes with many small micro-chromosomes alongside larger macro-chromosomes.",
+  "category": "organism",
+  "supplement": "This genome likely contains micro-chromosomes — very small chromosomes typical of birds, reptiles, and some fish. Key characteristics:\n\n- Expect 10-20 large macro-chromosomes AND 10-20+ tiny micro-chromosomes\n- Micro-chromosomes appear as very small but distinct blocks along the diagonal\n- They are gene-dense despite their small size, so they often show proportionally bright signal\n- Micro-chromosomes can be difficult to distinguish from assembly debris\n\nCuration priorities:\n1. First ensure the macro-chromosomes are correctly ordered and oriented\n2. Then identify micro-chromosomes: look for small but distinctly bounded blocks\n3. Group micro-chromosomes together (they're typically ordered after macro-chromosomes by convention)\n4. Don't confuse micro-chromosomes with misassembled fragments — micro-chromosomes show clean internal signal, fragments show noisy or absent signal\n5. Sex chromosomes (Z/W in birds, various in reptiles) may show distinctive patterns: the Z is often one of the larger chromosomes, while W is small and repetitive\n\nWhen scaffolding, name micro-chromosomes sequentially after the macro-chromosomes (e.g., Chr11, Chr12... if there are 10 macro-chromosomes).",
+  "examples": [
+    {
+      "scenario": "A bird genome shows 8 large blocks and then many tiny blocks in the bottom-right of the map",
+      "commands": "# The tiny blocks are likely micro-chromosomes — verify ordering\necho Micro-chromosomes detected: small blocks at positions #25-#40\nzoom #25"
+    }
+  ]
+}
